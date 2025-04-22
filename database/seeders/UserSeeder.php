@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Zoom;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -42,7 +43,19 @@ class UserSeeder extends Seeder
         ];
 
         foreach ($users as $user) {
-            User::factory()->create($user);
+            // User::factory()->create($user);
+
+            // User::factory()
+            //     ->has(Zoom::factory()->count(10))
+            //     ->create($user);
+
+            // User::factory()
+            //     ->has(Zoom::factory(10))
+            //     ->create($user);
+
+            User::factory()
+                ->hasZooms(3)
+                ->create($user);
         }
     }
 }
