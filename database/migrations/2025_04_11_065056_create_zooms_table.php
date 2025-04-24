@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('zooms', function (Blueprint $table) {
+        Schema::create(table: 'zooms', callback: function (Blueprint
+        $table): void {
             $table->id();
-            $table->string('user_id')->unique();
-            $table->string('email')->unique();
-            $table->string('zoom_api_key')->unique();
+            $table->string(column:'name')->unique();
+            $table->string(column:'email')->unique();
+            $table->string(column:'api_key');
+            $table->foreignId(column:'user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

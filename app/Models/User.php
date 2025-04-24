@@ -64,4 +64,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function zooms(): Hasmany
+    {
+        return $this->hasMany(related: Zoom::class);
+    }
 }
