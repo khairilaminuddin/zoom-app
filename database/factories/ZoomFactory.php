@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\Models\Zoom;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
