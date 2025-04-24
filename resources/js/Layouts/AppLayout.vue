@@ -8,6 +8,7 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 
+
 defineProps({
     title: String,
 });
@@ -49,7 +50,7 @@ const logout = () => {
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    Dashboard aa
                                 </NavLink>
                             </div>
                         </div>
@@ -192,7 +193,7 @@ const logout = () => {
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                            Dashboard 
                         </ResponsiveNavLink>
                     </div>
 
@@ -280,7 +281,18 @@ const logout = () => {
                 </div>
             </header>
 
+            <!-- test auto import app vue -->
+        
+            <Button label="Submit" />
+            <Button label="Success" severity="success" />
+            <Button label="Danger" severity="danger" />
+            <Button label="Info" severity="info" />
+            <br>
+            <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+
+            
             <!-- Page Content -->
+             
             <main>
                 <slot />
             </main>
