@@ -2,20 +2,19 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany; 
+use App\Models\Zoom; 
 
 class User extends Authenticatable
 {
     use HasApiTokens;
-
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory;
+    use HasFactory; 
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
@@ -65,8 +64,11 @@ class User extends Authenticatable
         ];
     }
 
-    public function zooms(): Hasmany
+    /**
+     * Get the Zooms for the user.
+     */
+    public function zooms(): HasMany
     {
-        return $this->hasMany(related: Zoom::class);
+        return $this->hasMany(Zoom::class); 
     }
 }
